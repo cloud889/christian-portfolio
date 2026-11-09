@@ -1,0 +1,577 @@
+{
+  "bookedtoplay": {
+    "cover": {
+      "src": "/work/bookedtoplay/cover.webp",
+      "w": 900,
+      "h": 450
+    },
+    "pages": [
+      {
+        "label": "Home",
+        "kind": "desktop",
+        "src": "/work/bookedtoplay/01-home.webp",
+        "w": 1200,
+        "h": 4139
+      },
+      {
+        "label": "Book",
+        "kind": "desktop",
+        "src": "/work/bookedtoplay/02-book.webp",
+        "w": 1200,
+        "h": 1883
+      },
+      {
+        "label": "Courts and Pricing",
+        "kind": "desktop",
+        "src": "/work/bookedtoplay/03-courts-and-pricing.webp",
+        "w": 1200,
+        "h": 3585
+      },
+      {
+        "label": "Memberships",
+        "kind": "desktop",
+        "src": "/work/bookedtoplay/04-memberships.webp",
+        "w": 1200,
+        "h": 3408
+      },
+      {
+        "label": "Events",
+        "kind": "desktop",
+        "src": "/work/bookedtoplay/05-events.webp",
+        "w": 1200,
+        "h": 4591
+      },
+      {
+        "label": "Play and Programmes",
+        "kind": "desktop",
+        "src": "/work/bookedtoplay/06-play-and-programmes.webp",
+        "w": 1200,
+        "h": 3672
+      },
+      {
+        "label": "Facility",
+        "kind": "desktop",
+        "src": "/work/bookedtoplay/07-facility.webp",
+        "w": 1200,
+        "h": 3672
+      },
+      {
+        "label": "About and Coaches",
+        "kind": "desktop",
+        "src": "/work/bookedtoplay/08-about-and-coaches.webp",
+        "w": 1200,
+        "h": 3971
+      },
+      {
+        "label": "FAQ and Policies",
+        "kind": "desktop",
+        "src": "/work/bookedtoplay/09-faq-and-policies.webp",
+        "w": 1200,
+        "h": 2343
+      },
+      {
+        "label": "Contact and Location",
+        "kind": "desktop",
+        "src": "/work/bookedtoplay/10-contact-and-location.webp",
+        "w": 1200,
+        "h": 2248
+      },
+      {
+        "label": "Mobile booking V2",
+        "kind": "mobile",
+        "src": "/work/bookedtoplay/11-mobile-booking-v2.webp",
+        "w": 440,
+        "h": 3785
+      },
+      {
+        "label": "Mobile court details",
+        "kind": "mobile",
+        "src": "/work/bookedtoplay/12-mobile-court-details.webp",
+        "w": 440,
+        "h": 1084
+      },
+      {
+        "label": "Mobile form review",
+        "kind": "mobile",
+        "src": "/work/bookedtoplay/13-mobile-form-review.webp",
+        "w": 440,
+        "h": 852
+      },
+      {
+        "label": "Mobile payment",
+        "kind": "mobile",
+        "src": "/work/bookedtoplay/14-mobile-payment.webp",
+        "w": 440,
+        "h": 852
+      },
+      {
+        "label": "Mobile confirmation",
+        "kind": "mobile",
+        "src": "/work/bookedtoplay/15-mobile-confirmation.webp",
+        "w": 440,
+        "h": 912
+      },
+      {
+        "label": "Mobile my bookings",
+        "kind": "mobile",
+        "src": "/work/bookedtoplay/16-mobile-my-bookings.webp",
+        "w": 440,
+        "h": 1298
+      },
+      {
+        "label": "Mobile login",
+        "kind": "mobile",
+        "src": "/work/bookedtoplay/17-mobile-login.webp",
+        "w": 440,
+        "h": 852
+      },
+      {
+        "label": "Mobile sign up",
+        "kind": "mobile",
+        "src": "/work/bookedtoplay/18-mobile-sign-up.webp",
+        "w": 440,
+        "h": 852
+      },
+      {
+        "label": "UX case study",
+        "kind": "desktop",
+        "src": "/work/bookedtoplay/19-ux-case-study.webp",
+        "w": 1200,
+        "h": 10647
+      }
+    ]
+  },
+  "bites-by-sweden": {
+    "cover": {
+      "src": "/work/bites-by-sweden/cover.webp",
+      "w": 900,
+      "h": 563
+    },
+    "pages": [
+      {
+        "label": "Landing page",
+        "kind": "desktop",
+        "src": "/work/bites-by-sweden/01-landing-page.webp",
+        "w": 1200,
+        "h": 6017
+      },
+      {
+        "label": "Product page, Sour Mix",
+        "kind": "desktop",
+        "src": "/work/bites-by-sweden/02-product-page-sour-mix.webp",
+        "w": 1200,
+        "h": 4788
+      }
+    ]
+  },
+  "data-flow": {
+    "cover": {
+      "src": "/work/data-flow/cover.webp",
+      "w": 900,
+      "h": 563
+    },
+    "pages": [
+      {
+        "label": "About Us",
+        "kind": "desktop",
+        "src": "/work/data-flow/01-about-us.webp",
+        "w": 1200,
+        "h": 3208
+      },
+      {
+        "label": "Blog",
+        "kind": "desktop",
+        "src": "/work/data-flow/02-blog.webp",
+        "w": 1200,
+        "h": 2103
+      },
+      {
+        "label": "GHL",
+        "kind": "desktop",
+        "src": "/work/data-flow/03-ghl.webp",
+        "w": 1200,
+        "h": 4971
+      },
+      {
+        "label": "HaloPSA",
+        "kind": "desktop",
+        "src": "/work/data-flow/04-halopsa.webp",
+        "w": 1200,
+        "h": 4679
+      },
+      {
+        "label": "Homepage",
+        "kind": "desktop",
+        "src": "/work/data-flow/05-homepage.webp",
+        "w": 1200,
+        "h": 5165
+      },
+      {
+        "label": "Webinar",
+        "kind": "desktop",
+        "src": "/work/data-flow/06-webinar.webp",
+        "w": 1200,
+        "h": 5129
+      },
+      {
+        "label": "Contact Us",
+        "kind": "desktop",
+        "src": "/work/data-flow/07-contact-us.webp",
+        "w": 1200,
+        "h": 1506
+      }
+    ]
+  },
+  "hidden-power": {
+    "cover": {
+      "src": "/work/hidden-power/cover.webp",
+      "w": 900,
+      "h": 563
+    },
+    "pages": [
+      {
+        "label": "About Us",
+        "kind": "desktop",
+        "src": "/work/hidden-power/01-about-us.webp",
+        "w": 1200,
+        "h": 3708
+      },
+      {
+        "label": "Contact",
+        "kind": "desktop",
+        "src": "/work/hidden-power/02-contact.webp",
+        "w": 1200,
+        "h": 1728
+      },
+      {
+        "label": "Home",
+        "kind": "desktop",
+        "src": "/work/hidden-power/03-home.webp",
+        "w": 1200,
+        "h": 4353
+      },
+      {
+        "label": "Installation",
+        "kind": "desktop",
+        "src": "/work/hidden-power/04-installation.webp",
+        "w": 1200,
+        "h": 3481
+      },
+      {
+        "label": "Product page",
+        "kind": "desktop",
+        "src": "/work/hidden-power/05-product-page.webp",
+        "w": 1200,
+        "h": 3607
+      },
+      {
+        "label": "Shop",
+        "kind": "desktop",
+        "src": "/work/hidden-power/06-shop.webp",
+        "w": 1200,
+        "h": 3133
+      },
+      {
+        "label": "Warranty",
+        "kind": "desktop",
+        "src": "/work/hidden-power/07-warranty.webp",
+        "w": 1200,
+        "h": 1666
+      }
+    ]
+  },
+  "lkf": {
+    "cover": {
+      "src": "/work/lkf/cover.webp",
+      "w": 900,
+      "h": 563
+    },
+    "pages": [
+      {
+        "label": "About Us",
+        "kind": "desktop",
+        "src": "/work/lkf/01-about-us.webp",
+        "w": 1200,
+        "h": 3439
+      },
+      {
+        "label": "Get Involved",
+        "kind": "desktop",
+        "src": "/work/lkf/02-get-involved.webp",
+        "w": 1200,
+        "h": 4425
+      },
+      {
+        "label": "Home",
+        "kind": "desktop",
+        "src": "/work/lkf/03-home.webp",
+        "w": 1200,
+        "h": 4595
+      },
+      {
+        "label": "News and Updates",
+        "kind": "desktop",
+        "src": "/work/lkf/04-news-and-updates.webp",
+        "w": 1200,
+        "h": 3397
+      },
+      {
+        "label": "Our Impact",
+        "kind": "desktop",
+        "src": "/work/lkf/05-our-impact.webp",
+        "w": 1200,
+        "h": 4395
+      },
+      {
+        "label": "Our Programs",
+        "kind": "desktop",
+        "src": "/work/lkf/06-our-programs.webp",
+        "w": 1200,
+        "h": 5006
+      },
+      {
+        "label": "Partners",
+        "kind": "desktop",
+        "src": "/work/lkf/07-partners.webp",
+        "w": 1200,
+        "h": 4347
+      }
+    ]
+  },
+  "pearl-farm": {
+    "cover": {
+      "src": "/work/pearl-farm/cover.webp",
+      "w": 900,
+      "h": 563
+    },
+    "pages": [
+      {
+        "label": "Experiences",
+        "kind": "desktop",
+        "src": "/work/pearl-farm/01-experiences.webp",
+        "w": 1200,
+        "h": 3865
+      },
+      {
+        "label": "Homepage",
+        "kind": "desktop",
+        "src": "/work/pearl-farm/02-homepage.webp",
+        "w": 1200,
+        "h": 5519
+      },
+      {
+        "label": "Meetings and Events",
+        "kind": "desktop",
+        "src": "/work/pearl-farm/03-meetings-and-events.webp",
+        "w": 1200,
+        "h": 2609
+      }
+    ]
+  },
+  "black-flame-doctrine": {
+    "cover": {
+      "src": "/work/black-flame-doctrine/cover.webp",
+      "w": 900,
+      "h": 563
+    },
+    "pages": [
+      {
+        "label": "About",
+        "kind": "desktop",
+        "src": "/work/black-flame-doctrine/01-about.webp",
+        "w": 1200,
+        "h": 6029
+      },
+      {
+        "label": "Coaching",
+        "kind": "desktop",
+        "src": "/work/black-flame-doctrine/02-coaching.webp",
+        "w": 1200,
+        "h": 2352
+      },
+      {
+        "label": "Homepage",
+        "kind": "desktop",
+        "src": "/work/black-flame-doctrine/03-homepage.webp",
+        "w": 1200,
+        "h": 8209
+      },
+      {
+        "label": "Speaking and Media",
+        "kind": "desktop",
+        "src": "/work/black-flame-doctrine/04-speaking-and-media.webp",
+        "w": 1200,
+        "h": 2223
+      },
+      {
+        "label": "The Doctrine",
+        "kind": "desktop",
+        "src": "/work/black-flame-doctrine/05-the-doctrine.webp",
+        "w": 1200,
+        "h": 5383
+      }
+    ]
+  },
+  "rc-financial": {
+    "cover": {
+      "src": "/work/rc-financial/cover.webp",
+      "w": 900,
+      "h": 563
+    },
+    "pages": [
+      {
+        "label": "About Us",
+        "kind": "desktop",
+        "src": "/work/rc-financial/01-about-us.webp",
+        "w": 1200,
+        "h": 2464
+      },
+      {
+        "label": "Contact Us",
+        "kind": "desktop",
+        "src": "/work/rc-financial/02-contact-us.webp",
+        "w": 1200,
+        "h": 1604
+      },
+      {
+        "label": "Website",
+        "kind": "desktop",
+        "src": "/work/rc-financial/03-website.webp",
+        "w": 1200,
+        "h": 7013
+      },
+      {
+        "label": "Services",
+        "kind": "desktop",
+        "src": "/work/rc-financial/04-services.webp",
+        "w": 1200,
+        "h": 3509
+      }
+    ]
+  },
+  "behind-the-logo": {
+    "cover": {
+      "src": "/work/behind-the-logo/cover.webp",
+      "w": 900,
+      "h": 563
+    },
+    "pages": [
+      {
+        "label": "Behind The Logo",
+        "kind": "desktop",
+        "src": "/work/behind-the-logo/01-behind-the-logo.webp",
+        "w": 1200,
+        "h": 4425
+      },
+      {
+        "label": "Contact Us template",
+        "kind": "desktop",
+        "src": "/work/behind-the-logo/02-contact-us-template.webp",
+        "w": 1200,
+        "h": 2174
+      },
+      {
+        "label": "Services, branding",
+        "kind": "desktop",
+        "src": "/work/behind-the-logo/03-services-branding.webp",
+        "w": 1200,
+        "h": 3205
+      },
+      {
+        "label": "Services, website design",
+        "kind": "desktop",
+        "src": "/work/behind-the-logo/04-services-website-design.webp",
+        "w": 1200,
+        "h": 3218
+      }
+    ]
+  },
+  "more-websites": {
+    "cover": {
+      "src": "/work/more-websites/cover.webp",
+      "w": 900,
+      "h": 563
+    },
+    "pages": [
+      {
+        "label": "Whitehall and Associates",
+        "kind": "desktop",
+        "src": "/work/more-websites/01-whitehall-and-associates.webp",
+        "w": 1200,
+        "h": 5756
+      },
+      {
+        "label": "Wilderness Redefined",
+        "kind": "desktop",
+        "src": "/work/more-websites/02-wilderness-redefined.webp",
+        "w": 1200,
+        "h": 3700
+      }
+    ]
+  },
+  "brand-and-social": {
+    "cover": {
+      "src": "/work/brand-and-social/cover.webp",
+      "w": 900,
+      "h": 900
+    },
+    "pages": [
+      {
+        "label": "Social: general announcement",
+        "kind": "square",
+        "src": "/work/brand-and-social/01-social-general-announcement.webp",
+        "w": 900,
+        "h": 900
+      },
+      {
+        "label": "Social: join our team",
+        "kind": "square",
+        "src": "/work/brand-and-social/02-social-join-our-team.webp",
+        "w": 900,
+        "h": 900
+      },
+      {
+        "label": "Social: project update",
+        "kind": "square",
+        "src": "/work/brand-and-social/03-social-project-update.webp",
+        "w": 900,
+        "h": 900
+      },
+      {
+        "label": "Social: unlimited",
+        "kind": "square",
+        "src": "/work/brand-and-social/04-social-unlimited.webp",
+        "w": 900,
+        "h": 900
+      },
+      {
+        "label": "Logo: DataFlow",
+        "kind": "square",
+        "src": "/work/brand-and-social/05-logo-dataflow.webp",
+        "w": 900,
+        "h": 506
+      },
+      {
+        "label": "Logo: Discover Davao",
+        "kind": "square",
+        "src": "/work/brand-and-social/06-logo-discover-davao.webp",
+        "w": 900,
+        "h": 900
+      },
+      {
+        "label": "Logo: Show Tel",
+        "kind": "square",
+        "src": "/work/brand-and-social/07-logo-show-tel.webp",
+        "w": 900,
+        "h": 506
+      },
+      {
+        "label": "Logo: children’s ministry",
+        "kind": "square",
+        "src": "/work/brand-and-social/08-logo-childrens-ministry.webp",
+        "w": 900,
+        "h": 732
+      }
+    ]
+  }
+}
