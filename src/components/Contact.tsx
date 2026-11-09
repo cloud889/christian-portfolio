@@ -32,9 +32,23 @@ export default function Contact() {
   return (
     <div className="contact">
       <h2>Have a site that needs to work harder?</h2>
-      <div className="mail">
-        <span ref={text}>{profile.email}</span>
-        <button onClick={copy}>{label}</button>
+      <div className="mails">
+        <div className="mail">
+          <span ref={text}>{profile.email}</span>
+          <button onClick={copy}>{label}</button>
+        </div>
+        <div className="mail">
+          <span>WhatsApp {profile.whatsapp}</span>
+          <a href={profile.whatsappLink} target="_blank" rel="noopener noreferrer">
+            Message
+          </a>
+        </div>
+        <div className="mail">
+          <span>LinkedIn Christian John Gundino</span>
+          <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">
+            View profile
+          </a>
+        </div>
       </div>
     </div>
   )

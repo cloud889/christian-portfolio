@@ -122,4 +122,20 @@ export const projects: Project[] = [
   { slug: 'brand-and-social', name: 'Brand and social', kind: 'Graphic design', tags: ['Logos', 'Social ads'], blurb: 'Logo work and social media advertising graphics.', facts: ['4 logos', '4 social media ads'], ...media('brand-and-social') },
 ]
 
-export const screenCount = (p: Project) => (p.pages.length > 0 ? `${p.pages.length} screens` : `${p.links?.length ?? 0} sites`)
+export type SiteKind = 'design-build' | 'migration' | 'sample' | 'wordpress'
+export type Site = { name: string; href: string; host: string; role: string; tags: string[]; kind: SiteKind; shot?: string }
+
+/** Live client sites. `shot` is the homepage hero, made by scripts/build-webflow.mjs. */
+export const sites: Site[] = [
+  { name: 'Tatum Lawn Care', href: 'https://www.tatumlawncarewa.com/', host: 'tatumlawncarewa.com', role: 'UI/UX design, Webflow development, CMS and SEO.', tags: ['Design', 'Webflow', 'CMS', 'SEO'], kind: 'design-build', shot: '/work/webflow/tatum.webp' },
+  { name: 'Silver Bullet', href: 'https://www.silverbullet-ut.com/', host: 'silverbullet-ut.com', role: 'Design and development, interactions and SEO.', tags: ['Design', 'Webflow', 'Interactions', 'SEO'], kind: 'design-build', shot: '/work/webflow/silverbullet.webp' },
+  { name: 'Alpine Exteriors', href: 'https://www.alpineexteriorsinc.com/', host: 'alpineexteriorsinc.com', role: 'Redesign and migration from WordPress.', tags: ['Redesign', 'Migration', 'Webflow'], kind: 'migration', shot: '/work/webflow/alpine.webp' },
+  { name: 'SPX Power Washing', href: 'https://www.spxpowerwashing.com/', host: 'spxpowerwashing.com', role: 'Migration and redesign from WordPress.', tags: ['Redesign', 'Migration', 'Webflow'], kind: 'migration', shot: '/work/webflow/spx.webp' },
+  { name: 'PGH RCS', href: 'https://www.pghrcs.com/', host: 'pghrcs.com', role: 'Webflow work sample.', tags: ['Webflow'], kind: 'sample', shot: '/work/webflow/pghrcs.webp' },
+  { name: 'Suites by VTJ', href: 'https://www.suitesbyvtj.com/', host: 'suitesbyvtj.com', role: 'Webflow work sample.', tags: ['Webflow'], kind: 'sample', shot: '/work/webflow/vtj.webp' },
+  { name: 'NXG Services', href: 'https://www.nxgservice.com/', host: 'nxgservice.com', role: 'Webflow work sample.', tags: ['Webflow'], kind: 'sample', shot: '/work/webflow/nxg.webp' },
+  { name: 'Your Green Clean Crew', href: 'https://www.yourgreencleancrew.com/', host: 'yourgreencleancrew.com', role: 'WordPress work sample.', tags: ['WordPress'], kind: 'wordpress' },
+  { name: 'Tembusu Law', href: 'https://www.tembusulaw.com.sg/', host: 'tembusulaw.com.sg', role: 'WordPress work sample.', tags: ['WordPress'], kind: 'wordpress' },
+]
+
+export const screenCount =(p: Project) => (p.pages.length > 0 ? `${p.pages.length} screens` : `${p.links?.length ?? 0} sites`)

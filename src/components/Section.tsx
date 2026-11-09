@@ -2,10 +2,12 @@ import { useLayoutEffect, useRef, type ReactNode } from 'react'
 import { gsap } from '../lib/gsap'
 import { useMotion } from '../lib/motion-mode'
 
-type Props = { id: string; title: string; aside?: string; reveal?: boolean; children: ReactNode }
+import Icon from './Icon'
+
+type Props = { id: string; title: string; icon?: string; aside?: string; reveal?: boolean; children: ReactNode }
 
 /** Section with a heading row. Children fade and rise in as the section scrolls into view. */
-export default function Section({ id, title, aside, reveal = true, children }: Props) {
+export default function Section({ id, title, icon, aside, reveal = true, children }: Props) {
   const { mode } = useMotion()
   const ref = useRef<HTMLElement>(null)
 
@@ -28,7 +30,10 @@ export default function Section({ id, title, aside, reveal = true, children }: P
   return (
     <section id={id} ref={ref}>
       <div className="sh">
-        <h2>{title}</h2>
+        <h2>
+          {icon && <Icon name={icon} />}
+          {title}
+        </h2>
         {aside && <span>{aside}</span>}
       </div>
       {children}

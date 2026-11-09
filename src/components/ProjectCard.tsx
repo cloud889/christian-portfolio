@@ -3,7 +3,7 @@ import { gsap } from '../lib/gsap'
 import { useMotion } from '../lib/motion-mode'
 import { screenCount, type Project } from '../data/projects'
 
-function CardPins({ pins }: { pins: { x: number; y: number }[] }) {
+export function CardPins({ pins }: { pins: { x: number; y: number }[] }) {
   const { mode } = useMotion()
   const ref = useRef<HTMLDivElement>(null)
   const [seen, setSeen] = useState(false)
@@ -77,7 +77,7 @@ export default function ProjectCard({ project, onOpen }: Props) {
         <span>{project.kind}</span>
         <span>{screenCount(project)}</span>
       </div>
-      <h3>{project.name}</h3>
+      <h4>{project.name}</h4>
       <div className="chips">
         {project.tags.map((t, i) => (
           <span key={t} className={`chip${i === 0 ? ' hot' : ''}`}>

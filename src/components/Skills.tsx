@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useLayoutEffect, useRef, type CSSProperties } from 'react'
 import { gsap } from '../lib/gsap'
 import { useMotion } from '../lib/motion-mode'
 import { bars, certificates, toolbox } from '../data/profile'
@@ -25,9 +25,9 @@ export default function Skills() {
   return (
     <div className="two" ref={ref}>
       <div className="panel">
-        <h3>Time on the tools</h3>
+        <h3>Mastery</h3>
         {bars.map((b) => (
-          <div className="bar" key={b.label}>
+          <div className="bar" key={b.label} style={{ '--c': b.color } as CSSProperties}>
             <div>
               <span>{b.label}</span>
               <span className="chip">{b.note}</span>

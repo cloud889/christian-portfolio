@@ -4,8 +4,12 @@ export const profile = {
   name: 'Christian John Gundino',
   eyebrow: 'Webflow · UI/UX · Technical SEO',
   role: 'Web developer and designer, Philippines',
-  lead: 'Websites built to be easy to scan, easy to act on, and easy to find. Design in Figma, build in Webflow or WordPress, ship with SEO already in place.',
+  lead: 'I build websites that balance aesthetics with a clear purpose: helping your business grow. With on-page and technical SEO foundations, conversion-focused design, and intuitive user flows, every page guides visitors toward taking action. Sound like what you’re looking for? Let’s connect.',
   email: 'cjgundino2@gmail.com',
+  github: 'https://github.com/cloud889',
+  linkedin: 'https://www.linkedin.com/in/christian-john-gundino-52596798/',
+  whatsapp: '+639399308185',
+  whatsappLink: 'https://wa.me/639399308185',
   availability: 'Open to remote work',
   contactLine: 'Open to remote work, including US overlap hours',
 }
@@ -13,10 +17,10 @@ export const profile = {
 export type Kpi = { value: number; suffix: string; label: string; primary?: boolean }
 
 export const kpis: Kpi[] = [
-  { value: 80, suffix: '+', label: 'Client sites maintained', primary: true },
-  { value: 6, suffix: '+', label: 'Years in web development' },
+  { value: 6, suffix: '+', label: 'Years in web development', primary: true },
   { value: 9, suffix: '+', label: 'Years in graphic design' },
   { value: 3, suffix: '', label: 'Webflow certificates' },
+  { value: 80, suffix: '+', label: 'Client sites maintained' },
 ]
 
 export const ticker = [
@@ -32,11 +36,17 @@ export const ticker = [
   'Responsive QA',
 ]
 
-export const bars = [
-  { label: 'Graphic design', note: '9+ yrs', value: 1 },
-  { label: 'Web development', note: '6 yrs', value: 0.67 },
-  { label: 'Webflow, as main platform', note: '2 yrs 7 mo', value: 0.29 },
+// Self-rated mastery, in percent. Bar length and label both come from `pct`.
+// Each bar gets its own hue. Coral is left out on purpose: it is reserved for pins.
+const mastery = [
+  { label: 'Figma', pct: 95, color: '#b79bff' },
+  { label: 'Webflow', pct: 92, color: '#7fa8ff' },
+  { label: 'Web development, front end and back end', pct: 87, color: '#8fe3ff' },
+  { label: 'WordPress', pct: 85, color: '#6fe3c1' },
+  { label: 'On-page technical SEO', pct: 78, color: '#ffd37a' },
+  { label: 'Adobe Photoshop and Illustrator', pct: 75, color: '#ff9fcb' },
 ]
+export const bars = mastery.map((m) => ({ label: m.label, note: `${m.pct}%`, value: m.pct / 100, color: m.color }))
 
 export const toolbox: { name: string; hot?: boolean }[] = [
   { name: 'Webflow', hot: true },

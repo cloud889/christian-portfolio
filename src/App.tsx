@@ -29,6 +29,7 @@ function Shell() {
       gsap
         .timeline({ defaults: { ease: 'power3.out' } })
         .from('.eyebrow', { x: -20, opacity: 0, duration: 0.6 })
+        .from('.hero-portrait', { y: 20, opacity: 0, duration: 1.1 }, '<')
         .from('.name .ch', { yPercent: 115, duration: 0.9, stagger: 0.03 }, '-=0.3')
         .from('.role, .lead', { y: 18, opacity: 0, duration: 0.7, stagger: 0.1 }, '-=0.5')
         .from('.kpi', { y: 26, opacity: 0, duration: 0.7, stagger: 0.08 }, '-=0.4')
@@ -88,19 +89,19 @@ function Shell() {
 
           <Hero />
 
-          <Section id="projects" title="Projects" aside="Open a project to see the full designs. BookedToPlay has pinned notes." reveal={false}>
+          <Section id="projects" title="Projects" icon="folder_open" aside="Live Webflow sites first, then the UX/UI case study" reveal={false}>
             <ProjectGrid onOpen={openProject} />
           </Section>
 
-          <Section id="skills" title="Stack" aside="Experience in years, from the CV and profile">
+          <Section id="skills" title="Stack" icon="layers" aside="Self-rated mastery of the tools I use most">
             <Skills />
           </Section>
 
-          <Section id="timeline" title="History" aside="Newest first">
+          <Section id="timeline" title="History" icon="history" aside="Newest first">
             <Timeline />
           </Section>
 
-          <Section id="contact" title="Contact" aside={profile.contactLine}>
+          <Section id="contact" title="Contact" icon="mail" aside={profile.contactLine}>
             <Contact />
           </Section>
         </main>
