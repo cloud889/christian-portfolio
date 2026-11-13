@@ -2,27 +2,21 @@ import { useEffect, useLayoutEffect, useRef, useState, type MouseEvent } from 'r
 import { gsap } from '../lib/gsap'
 import { useMotion, type Mode } from '../lib/motion-mode'
 import { profile } from '../data/profile'
-import { caseStudies, webflowCount } from '../data/projects'
 import Icon from './Icon'
 
-type Item = { id: string; label: string; icon: string; count?: string }
+type Item = { id: string; label: string; icon: string }
 
 const BEFORE: Item[] = [
   { id: 'overview', label: 'Overview', icon: 'dashboard' },
   { id: 'projects', label: 'Projects', icon: 'folder_open' },
-]
-/** Jump links inside Projects. The ids sit on the group headings in ProjectGrid. */
-const WORKS: Item[] = [
-  { id: 'works-web', label: 'Web', icon: 'code', count: String(webflowCount).padStart(2, '0') },
-  { id: 'works-ux', label: 'UX/UI', icon: 'draw', count: String(caseStudies.length).padStart(2, '0') },
 ]
 const AFTER: Item[] = [
   { id: 'skills', label: 'Stack', icon: 'layers' },
   { id: 'timeline', label: 'History', icon: 'history' },
   { id: 'contact', label: 'Contact', icon: 'mail' },
 ]
-const ORDER = [...BEFORE, ...WORKS, ...AFTER].map((n) => n.id)
 const MAIN = [...BEFORE, ...AFTER]
+const ORDER = MAIN.map((n) => n.id)
 
 const MODES: { value: Mode; label: string }[] = [
   { value: 'led', label: 'Led' },
@@ -187,11 +181,11 @@ export default function Sidebar({ projectCount }: { projectCount: number }) {
     })
   }
 
-  const link = (n: Item, sub = false) => (
+  const link = (n: Item) => (
     <a key={n.id} data-id={n.id} href={`#${n.id}`} className={current === n.id ? 'on' : undefined} aria-current={current === n.id ? 'location' : undefined} onClick={(e) => go(e, n.id)}>
       <Icon name={n.icon} />
       <b>{n.label}</b>
-      <span>{sub ? n.count : n.id === 'projects' ? projectCount : String(MAIN.findIndex((m) => m.id === n.id) + 1).padStart(2, '0')}</span>
+      <span>{n.id === 'projects' ? projectCount : String(MAIN.findIndex((m) => m.id === n.id) + 1).padStart(2, '0')}</span>
     </a>
   )
 
@@ -203,12 +197,7 @@ export default function Sidebar({ projectCount }: { projectCount: number }) {
       </div>
       <nav className="nav" aria-label="Sections" ref={nav}>
         <span className="navind" ref={ind} aria-hidden="true" />
-        {BEFORE.map((n) => link(n))}
-        <div className="subnav" role="group" aria-label="Works">
-          <small>Works</small>
-          {WORKS.map((n) => link(n, true))}
-        </div>
-        {AFTER.map((n) => link(n))}
+        {MAIN.map((n) => link(n))}
       </nav>
       <div className="sidecontact">
         <small>Contact</small>
