@@ -89,7 +89,7 @@ function Shell() {
 
           <Hero />
 
-          <Section id="projects" title="Projects" icon="folder_open" aside="Live Webflow sites first, then the UX/UI case study" reveal={false}>
+          <Section id="projects" title="Projects" icon="folder_open" aside="Live Webflow sites first, then the UX/UI case studies" reveal={false}>
             <ProjectGrid onOpen={openProject} />
           </Section>
 

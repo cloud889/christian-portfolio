@@ -1,6 +1,6 @@
 // Converts the source design screenshots into optimized WebP files under public/work
 // and writes src/data/images.json (paths + dimensions) for the app to import.
-// Usage: node scripts/build-images.mjs [sourceRoot]
+// Usage: node scripts/build-images.mjs [sourceRoot] [slug,slug]   (second argument rebuilds only those projects)
 import sharp from 'sharp'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -14,6 +14,9 @@ const SRC =
 
 const BTP = 'Portfolio - Booked To Play/Booked To Play'
 const WD = 'Web Design'
+const CER = 'Portfolio - Booked To Play/Cerebru-20261113T020858Z-1-001/Cerebru/exports'
+const CD = `${CER}/desktop-1440`
+const CM = `${CER}/mobile-390`
 
 // kind: desktop = full-page screenshot shown in a browser frame
 //       mobile  = phone screen shown in a phone frame
@@ -44,6 +47,51 @@ const projects = [
       ['Mobile login', `${BTP}/Login and Sign up Flow/Mobile - Login.png`, 'mobile'],
       ['Mobile sign up', `${BTP}/Login and Sign up Flow/Mobile - Sign up.png`, 'mobile'],
       ['UX case study', `${BTP}/Case Study/BookedToPlay \u2014 UX Case Study.png`, 'desktop'],
+    ],
+  },
+  {
+    slug: 'cerebru',
+    cover: 0,
+    // 4:3 so the card's pins sit exactly on the image (the case card shows a 4:3 thumbnail)
+    coverCrop: [0, 0, 1200, 900],
+    pages: [
+      ['Home', `${CD}/01-dashboard.jpg`, 'desktop'],
+      ['Chat, answered', `${CD}/02-chat-answered.jpg`, 'desktop'],
+      ['Chat, new chat', `${CD}/02-chat-new-chat.jpg`, 'desktop'],
+      ['Chat, no answer found', `${CD}/02-chat-unanswered-fallback.jpg`, 'desktop'],
+      ['Docs library', `${CD}/03-docs-library.jpg`, 'desktop'],
+      ['Docs reader', `${CD}/03-docs-reader.jpg`, 'desktop'],
+      ['Client 360', `${CD}/04-clients-overview.jpg`, 'desktop'],
+      ['Client tickets', `${CD}/04-clients-tickets.jpg`, 'desktop'],
+      ['Ops overview', `${CD}/05-ops-overview.jpg`, 'desktop'],
+      ['Ops project', `${CD}/05-ops-project.jpg`, 'desktop'],
+      ['Workflows, checklists', `${CD}/06-workflows-checklists.jpg`, 'desktop'],
+      ['Workflows, templates', `${CD}/06-workflows-templates.jpg`, 'desktop'],
+      ['Support', `${CD}/07-support.jpg`, 'desktop'],
+      ['Vault, logins', `${CD}/08-vault-logins.jpg`, 'desktop'],
+      ['Vault, empty', `${CD}/08-vault-empty.jpg`, 'desktop'],
+      ['Ops Inbox', `${CD}/09-ops-inbox.jpg`, 'desktop'],
+      // The full written case study, rendered by scripts/render-case-study.mjs from Cerebru/case-study/index.html
+      ['UX case study', path.join(root, 'scripts', '.render', 'cerebru-ux-case-study.png'), 'desktop', { format: 'jpeg' }],
+      ['Mobile home', `${CM}/01-dashboard.jpg`, 'mobile'],
+      ['Mobile chat', `${CM}/02-chat-answered.jpg`, 'mobile'],
+      ['Mobile new chat', `${CM}/02-chat-new-chat.jpg`, 'mobile'],
+      ['Mobile no answer found', `${CM}/02-chat-unanswered-fallback.jpg`, 'mobile'],
+      ['Mobile docs library', `${CM}/03-docs-library.jpg`, 'mobile'],
+      ['Mobile Client 360', `${CM}/04-clients-overview.jpg`, 'mobile'],
+      ['Mobile client tickets', `${CM}/04-clients-tickets.jpg`, 'mobile'],
+      ['Mobile ops overview', `${CM}/05-ops-overview.jpg`, 'mobile'],
+      ['Mobile ops project', `${CM}/05-ops-project.jpg`, 'mobile'],
+      ['Mobile checklists', `${CM}/06-workflows-checklists.jpg`, 'mobile'],
+      ['Mobile checklist detail', `${CM}/06-workflows-checklist-detail.jpg`, 'mobile'],
+      ['Mobile templates', `${CM}/06-workflows-templates.jpg`, 'mobile'],
+      ['Mobile support', `${CM}/07-support-tickets.jpg`, 'mobile'],
+      ['Mobile ticket preview', `${CM}/07-support-ticket-preview.jpg`, 'mobile'],
+      ['Mobile vault', `${CM}/08-vault-logins.jpg`, 'mobile'],
+      ['Mobile login detail', `${CM}/08-vault-login-detail.jpg`, 'mobile'],
+      ['Mobile vault empty', `${CM}/08-vault-empty.jpg`, 'mobile'],
+      ['Mobile Ops Inbox', `${CM}/09-ops-inbox-list.jpg`, 'mobile'],
+      ['Mobile Ops Inbox detail', `${CM}/09-ops-inbox-detail.jpg`, 'mobile'],
     ],
   },
   {
@@ -161,25 +209,33 @@ const slugify = (s) =>
   s.toLowerCase().replace(/[\u2019']/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 
 const outRoot = path.join(root, 'public', 'work')
-fs.rmSync(outRoot, { recursive: true, force: true })
+const manifestFile = path.join(root, 'src', 'data', 'images.json')
 
-const manifest = {}
+// Keep what earlier runs produced (and other folders such as public/work/webflow).
+// Only the projects in the list above are rebuilt.
+const manifest = fs.existsSync(manifestFile) ? JSON.parse(fs.readFileSync(manifestFile, 'utf8')) : {}
+const only = process.argv[3] ? process.argv[3].split(',') : null // e.g. node scripts/build-images.mjs "" cerebru
 for (const p of projects) {
+  if (only && !only.includes(p.slug)) continue
   const dir = path.join(outRoot, p.slug)
+  fs.rmSync(dir, { recursive: true, force: true })
   fs.mkdirSync(dir, { recursive: true })
   const entry = { cover: null, pages: [] }
   let i = 0
-  for (const [label, rel, kind] of p.pages) {
-    const src = path.join(SRC, rel)
+  for (const [label, rel, kind, opts] of p.pages) {
+    const src = path.isAbsolute(rel) ? rel : path.join(SRC, rel)
     if (!fs.existsSync(src)) throw new Error('Missing source: ' + src)
-    const name = `${String(i + 1).padStart(2, '0')}-${slugify(label)}.webp`
+    // WebP cannot be taller than 16,383px, so very long pages are written as JPEG instead.
+    const jpeg = opts?.format === 'jpeg'
+    const name = `${String(i + 1).padStart(2, '0')}-${slugify(label)}.${jpeg ? 'jpg' : 'webp'}`
     const img = sharp(src, { limitInputPixels: false })
     const meta = await img.metadata()
     const width = kind === 'mobile' ? Math.min(meta.width, 440) : kind === 'square' ? 900 : 1200
-    const info = await sharp(src, { limitInputPixels: false })
-      .resize({ width, withoutEnlargement: true })
-      .webp({ quality: kind === 'mobile' ? 82 : 76 })
-      .toFile(path.join(dir, name))
+    const resized = sharp(src, { limitInputPixels: false }).resize({ width, withoutEnlargement: true })
+    const info = await (jpeg
+      ? resized.jpeg({ quality: 72, mozjpeg: true })
+      : resized.webp({ quality: kind === 'mobile' ? 82 : 76 })
+    ).toFile(path.join(dir, name))
     entry.pages.push({ label, kind, src: `/work/${p.slug}/${name}`, w: info.width, h: info.height })
     if (i === p.cover) {
       const cw = meta.width
@@ -204,7 +260,7 @@ for (const p of projects) {
 }
 
 fs.mkdirSync(path.join(root, 'src', 'data'), { recursive: true })
-fs.writeFileSync(path.join(root, 'src', 'data', 'images.json'), JSON.stringify(manifest, null, 2))
+fs.writeFileSync(manifestFile, JSON.stringify(manifest, null, 2))
 
 let total = 0
 const walk = (d) => {

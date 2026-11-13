@@ -175,6 +175,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  position: relative;
 }
 .nav a {
   display: flex;
@@ -187,7 +188,7 @@ img {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   border-left: 1px solid var(--line);
-  transition: color 0.2s, border-color 0.2s;
+  transition: color 0.2s, border-color 0.2s, background 0.35s;
 }
 .nav a:hover {
   color: var(--fg);
@@ -195,7 +196,7 @@ img {
 }
 .nav a.on {
   color: var(--ice);
-  border-left-color: var(--ice);
+  background: linear-gradient(90deg, rgba(143, 227, 255, 0.1), transparent 80%);
 }
 .nav a b {
   font-weight: 400;
@@ -203,6 +204,81 @@ img {
 }
 .nav a .mi {
   font-size: 18px;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+html[data-motion='led'] .nav a:hover .mi {
+  transform: translateX(3px);
+}
+/* The ice bar that slides to the current link (positioned by GSAP) */
+.navind {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 0;
+  opacity: 0;
+  background: var(--ice);
+  box-shadow: 0 0 12px rgba(143, 227, 255, 0.7);
+  pointer-events: none;
+  z-index: 1;
+}
+/* Works: jump links inside Projects */
+.subnav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.subnav small {
+  padding: 8px 12px 3px 40px;
+  font: 10px var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8d9bb8;
+}
+.nav .subnav a {
+  padding: 7px 12px 7px 40px;
+  font-size: 11px;
+}
+.nav .subnav a .mi {
+  font-size: 16px;
+}
+/* Shown briefly on a heading after a sidebar jump lands on it */
+.landed {
+  animation: landed 1.3s ease-out;
+}
+.landed .mi {
+  animation: landed-icon 0.9s cubic-bezier(0.2, 1.6, 0.4, 1);
+}
+@keyframes landed {
+  0% {
+    color: var(--ice);
+    text-shadow: 0 0 26px rgba(143, 227, 255, 0.85);
+  }
+  100% {
+    color: inherit;
+    text-shadow: 0 0 0 rgba(143, 227, 255, 0);
+  }
+}
+@keyframes landed-icon {
+  0% {
+    transform: scale(0.6);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+html[data-motion='off'] .landed,
+html[data-motion='off'] .landed .mi {
+  animation: none;
+}
+.grp[id] {
+  scroll-margin-top: 24px;
+}
+.cases {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 22px;
 }
 .dial {
   border: 1px solid rgba(190, 210, 255, 0.16);
@@ -1519,11 +1595,27 @@ button.cact:hover {
   .nav {
     flex-direction: row;
   }
-  .nav a {
+  .nav a,
+  .nav .subnav a {
     border-left: 0;
     border-bottom: 1px solid var(--line);
     padding: 6px 10px;
     white-space: nowrap;
+    font-size: 12px;
+  }
+  .nav a.on {
+    border-bottom-color: var(--ice);
+    background: none;
+  }
+  .navind,
+  .subnav small {
+    display: none;
+  }
+  .subnav {
+    display: contents;
+  }
+  .grp[id] {
+    scroll-margin-top: 76px;
   }
   .nav a span:not(.mi),
   .brand span,

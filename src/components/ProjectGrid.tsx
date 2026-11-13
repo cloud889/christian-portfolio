@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef } from 'react'
 import { gsap } from '../lib/gsap'
 import { useMotion } from '../lib/motion-mode'
-import { projects, sites, type Project } from '../data/projects'
+import { caseStudies as caseSlugs, projects, sites, webflowCount, type Project } from '../data/projects'
 import ProjectCard, { CardPins } from './ProjectCard'
 import SiteTile from './SiteTile'
 import Icon from './Icon'
@@ -15,9 +15,8 @@ export default function ProjectGrid({ onOpen }: Props) {
   const { mode } = useMotion()
   const ref = useRef<HTMLDivElement>(null)
 
-  const caseStudy = projects.find((p) => p.slug === 'bookedtoplay')
-  const archive = projects.filter((p) => p.cover && p.slug !== 'bookedtoplay')
-  const webflowCount = sites.filter((s) => s.kind !== 'wordpress').length
+  const cases = caseSlugs.map((slug) => projects.find((p) => p.slug === slug)).filter((p): p is Project => Boolean(p))
+  const archive = projects.filter((p) => p.cover && !caseSlugs.includes(p.slug))
 
   useLayoutEffect(() => {
     const el = ref.current
@@ -38,7 +37,7 @@ export default function ProjectGrid({ onOpen }: Props) {
 
   return (
     <div className="pgroups" ref={ref}>
-      <div className="grp">
+      <div className="grp" id="works-web">
         <h3>
           <Icon name="code" />
           Webflow development
@@ -94,42 +93,52 @@ export default function ProjectGrid({ onOpen }: Props) {
         ))}
       </div>
 
-      {caseStudy && (
+      {cases.length > 0 && (
         <>
           <hr className="grp-hr" />
-          <div className="grp quiet">
+          <div className="grp quiet" id="works-ux">
             <h3>
               <Icon name="draw" />
               UX/UI design
             </h3>
-            <p>A separate case study. This is design work, not development.</p>
+            <p>{cases.length} full case studies. This is design work, not development.</p>
           </div>
-          <button className="case" onClick={(e) => onOpen(caseStudy, e.currentTarget.getBoundingClientRect())} aria-label={`Open ${caseStudy.name} case study`}>
-            <div className="thumb">
-              {caseStudy.cover && <img src={caseStudy.cover.src} width={caseStudy.cover.w} height={caseStudy.cover.h} alt="" loading="lazy" decoding="async" />}
-              {caseStudy.cardPins && <CardPins pins={caseStudy.cardPins} />}
-            </div>
-            <div className="cbody">
-              <h4>{caseStudy.name}</h4>
-              <p>{caseStudy.blurb}</p>
-              <ul>
-                {caseStudy.facts.slice(0, 3).map((f) => (
-                  <li key={f}>{f}</li>
-                ))}
-              </ul>
-              <div className="chips">
-                {caseStudy.tags.map((t) => (
-                  <span key={t} className="chip">
-                    {t}
+          <div className="cases">
+            {cases.map((c) => (
+              <button
+                key={c.slug}
+                id={`case-${c.slug}`}
+                className="case"
+                onClick={(e) => onOpen(c, e.currentTarget.getBoundingClientRect())}
+                aria-label={`Open ${c.name} case study`}
+              >
+                <div className="thumb">
+                  {c.cover && <img src={c.cover.src} width={c.cover.w} height={c.cover.h} alt="" loading="lazy" decoding="async" />}
+                  {c.cardPins && <CardPins pins={c.cardPins} />}
+                </div>
+                <div className="cbody">
+                  <h4>{c.name}</h4>
+                  <p>{c.blurb}</p>
+                  <ul>
+                    {c.facts.slice(0, 3).map((f) => (
+                      <li key={f}>{f}</li>
+                    ))}
+                  </ul>
+                  <div className="chips">
+                    {c.tags.map((t) => (
+                      <span key={t} className="chip">
+                        {t}
+                      </span>
+                    ))}
+                    {c.story && <span className="chip pinchip">{c.story.pins.length} pinned notes</span>}
+                  </div>
+                  <span className="open">
+                    Open case study <Icon name="arrow_outward" />
                   </span>
-                ))}
-                {caseStudy.story && <span className="chip pinchip">{caseStudy.story.pins.length} pinned notes</span>}
-              </div>
-              <span className="open">
-                Open case study <Icon name="arrow_outward" />
-              </span>
-            </div>
-          </button>
+                </div>
+              </button>
+            ))}
+          </div>
         </>
       )}
 

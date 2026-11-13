@@ -86,6 +86,68 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: 'cerebru',
+    name: 'Cerebru',
+    kind: 'UX/UI case study',
+    tags: ['UX/UI', 'AI product', 'Design system'],
+    blurb:
+      'An internal workspace for a web and IT agency, with an AI assistant that cites its sources and says so when it does not know.',
+    facts: [
+      '35 screens: 16 desktop at 1440 and 19 mobile at 390',
+      'OpsBrain chat with numbered sources and a designed "No answer found" state',
+      'Knowledge-gap loop: unanswered questions become SOP drafts and doc requests',
+      'Ops Inbox of rule-based exceptions, each with its evidence',
+      '142 components and 71 variables, tokenised from the start',
+      'Status: UI design complete. Mobile Docs Reader, Reports, Integrations and Settings still to design',
+    ],
+    ...media('cerebru'),
+    cardPins: [
+      { x: 29, y: 11.7 },
+      { x: 48.3, y: 33.3 },
+      { x: 85.8, y: 54.7 },
+    ],
+    story: {
+      page: 'Home',
+      pins: [
+        {
+          x: 29,
+          y: 6.7,
+          label: 'Ask bar',
+          title: 'The main action is always a question away',
+          text: 'Home opens with a greeting and an Ask bar. Whatever the job is, it starts with asking OpsBrain, or with one of the module cards below.',
+        },
+        {
+          x: 48.3,
+          y: 19.1,
+          label: 'Needs attention',
+          title: 'Urgency sets the reading order',
+          text: 'The command center ranks work by severity. Critical and High chips lead the Needs attention list, and the page runs from attention, to work, to admin.',
+        },
+        {
+          x: 91,
+          y: 18.8,
+          label: 'Project health',
+          title: 'Health is a score out of 100',
+          text: 'Projects to watch gives each at-risk project a health score out of 100, and support load becomes a single bar, so status reads at a glance.',
+        },
+        {
+          x: 85.8,
+          y: 31.3,
+          label: 'Getting started',
+          title: 'Onboarding happens in place',
+          text: 'A Getting started checklist (4 of 6 done) onboards new users inside Home, with a Start or Ask action on each step.',
+        },
+        {
+          x: 63.4,
+          y: 68.8,
+          label: 'Unanswered questions',
+          title: 'Gaps ranked by how often they are asked',
+          text: 'The admin band, marked "Visible to admins only", lists what the AI could not answer, ranked by how often it was asked (3×, 2×). Each row offers Draft SOP or Resolve, so writing effort goes where demand is.',
+        },
+      ],
+    },
+  },
+  {
     slug: 'webflow-builds',
     name: 'Webflow work samples',
     kind: 'Webflow builds',
@@ -137,5 +199,11 @@ export const sites: Site[] = [
   { name: 'Your Green Clean Crew', href: 'https://www.yourgreencleancrew.com/', host: 'yourgreencleancrew.com', role: 'WordPress work sample.', tags: ['WordPress'], kind: 'wordpress' },
   { name: 'Tembusu Law', href: 'https://www.tembusulaw.com.sg/', host: 'tembusulaw.com.sg', role: 'WordPress work sample.', tags: ['WordPress'], kind: 'wordpress' },
 ]
+
+/** UX/UI case studies, in the order they appear on the page. */
+export const caseStudies = ['bookedtoplay', 'cerebru']
+
+/** Sites that are built in Webflow (the WordPress samples are listed separately). */
+export const webflowCount = sites.filter((s) => s.kind !== 'wordpress').length
 
 export const screenCount =(p: Project) => (p.pages.length > 0 ? `${p.pages.length} screens` : `${p.links?.length ?? 0} sites`)

@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Intermediate renders (see scripts/render-case-study.mjs)
+scripts/.render
