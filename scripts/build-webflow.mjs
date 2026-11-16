@@ -6,7 +6,9 @@ import { join } from 'node:path'
 
 const src = process.argv[2]
 if (!src) throw new Error('Pass the folder that holds the screenshots')
-const slugs = ['tatum', 'silverbullet', 'alpine', 'spx', 'pghrcs', 'vtj', 'nxg']
+// Optional second argument rebuilds only some slugs: node scripts/build-webflow.mjs <folder> lampliter,goldenbroom
+const all = ['tatum', 'silverbullet', 'alpine', 'spx', 'pghrcs', 'vtj', 'nxg', 'lampliter', 'goldenbroom', 'tca-parkville', 'tca-denver', 'intheweeds']
+const slugs = process.argv[3] ? process.argv[3].split(',') : all
 const out = join(import.meta.dirname, '..', 'public', 'work', 'webflow')
 mkdirSync(out, { recursive: true })
 

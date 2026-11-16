@@ -196,6 +196,11 @@ export const sites: Site[] = [
   { name: 'PGH RCS', href: 'https://www.pghrcs.com/', host: 'pghrcs.com', role: 'Webflow work sample.', tags: ['Webflow'], kind: 'sample', shot: '/work/webflow/pghrcs.webp' },
   { name: 'Suites by VTJ', href: 'https://www.suitesbyvtj.com/', host: 'suitesbyvtj.com', role: 'Webflow work sample.', tags: ['Webflow'], kind: 'sample', shot: '/work/webflow/vtj.webp' },
   { name: 'NXG Services', href: 'https://www.nxgservice.com/', host: 'nxgservice.com', role: 'Webflow work sample.', tags: ['Webflow'], kind: 'sample', shot: '/work/webflow/nxg.webp' },
+  { name: 'The Lampliter', href: 'https://www.thelampliter.com/', host: 'thelampliter.com', role: 'Webflow work sample.', tags: ['Webflow'], kind: 'sample', shot: '/work/webflow/lampliter.webp' },
+  { name: 'Golden Broom Cleaning', href: 'https://www.goldenbroomcleaning.com/', host: 'goldenbroomcleaning.com', role: 'Webflow work sample.', tags: ['Webflow'], kind: 'sample', shot: '/work/webflow/goldenbroom.webp' },
+  { name: 'The Cleaning Authority, Parkville', href: 'https://www.thecleaningauthority-parkville.com/', host: 'thecleaningauthority-parkville.com', role: 'Webflow work sample.', tags: ['Webflow'], kind: 'sample', shot: '/work/webflow/tca-parkville.webp' },
+  { name: 'The Cleaning Authority, Denver East', href: 'https://www.thecleaningauthority-denvereast.com/', host: 'thecleaningauthority-denvereast.com', role: 'Webflow work sample.', tags: ['Webflow'], kind: 'sample', shot: '/work/webflow/tca-denver.webp' },
+  { name: 'In The Weeds Turf Care', href: 'https://www.intheweedsturfcare.com/about-us', host: 'intheweedsturfcare.com', role: 'Webflow work sample.', tags: ['Webflow'], kind: 'sample', shot: '/work/webflow/intheweeds.webp' },
   { name: 'Your Green Clean Crew', href: 'https://www.yourgreencleancrew.com/', host: 'yourgreencleancrew.com', role: 'WordPress work sample.', tags: ['WordPress'], kind: 'wordpress' },
   { name: 'Tembusu Law', href: 'https://www.tembusulaw.com.sg/', host: 'tembusulaw.com.sg', role: 'WordPress work sample.', tags: ['WordPress'], kind: 'wordpress' },
 ]
